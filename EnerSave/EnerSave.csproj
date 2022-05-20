@@ -6,13 +6,9 @@
 
   <ItemGroup>
     <Compile Remove="Views\NovaPasta\**" />
-    <Compile Remove="Views\TgastosEnergia\**" />
     <Content Remove="Views\NovaPasta\**" />
-    <Content Remove="Views\TgastosEnergia\**" />
     <EmbeddedResource Remove="Views\NovaPasta\**" />
-    <EmbeddedResource Remove="Views\TgastosEnergia\**" />
     <None Remove="Views\NovaPasta\**" />
-    <None Remove="Views\TgastosEnergia\**" />
   </ItemGroup>
 
   <ItemGroup>
