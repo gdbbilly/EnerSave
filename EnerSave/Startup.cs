@@ -33,6 +33,8 @@ namespace ConsultasMVC
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddScoped<ITgastosAguaModel, TgastosAguaModel>();
+            services.AddScoped<ITgastosEnergiaModel, TgastosEnergiaModel>();
+            services.AddScoped<IDescarteLixoModel, TdescarteLixoModel>();
 
             var connection = @"server=localhost;user id=dbenersave;database=dbenersave;password=;port=3306;CHARSET=utf8;convert zero datetime=True;";
             services.AddDbContext<DbenersaveContext>(options => options.UseMySql(connection));
