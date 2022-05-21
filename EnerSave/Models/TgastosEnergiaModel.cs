@@ -29,11 +29,11 @@ namespace ConsultasMVC.Models
         }
         public async Task<int> postGastosAgua(GastosEnergiaViewModel tgastosagua)
         {
-            var gastosAgua = new TgastosEnergia();
-            gastosAgua.Kwh = tgastosagua.Kwh;
-            gastosAgua.Periodo = tgastosagua.Periodo;
-            gastosAgua.UsuarioId = tgastosagua.UsuarioId;
-            _context.Add(gastosAgua);
+            var gastosenergia = new TgastosEnergia();
+            gastosenergia.Kwh = tgastosagua.Kwh;
+            gastosenergia.Periodo = tgastosagua.Periodo;
+            gastosenergia.UsuarioId = tgastosagua.UsuarioId;
+            _context.Add(gastosenergia);
             return await _context.SaveChangesAsync();
 
         }
