@@ -8,12 +8,36 @@
 <h3>Quais Gastos quer consultar?</h3>
 <br />
 
-<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox"  id="gastoMensalAgua">
-  <label class="form-check-label" for="gastoMensalAgua">Água</label>
-</div>
-<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" " id="gastoMensalEnergia">
-  <label class="form-check-label" for="gastoMensalEnergia">Energia</label>
-</div>
+<div class="row"> 
+    <div class="col-md-4"> 
+       <form asp-action="Details"> 
 
+           <div class="form-check">
+                <input class="form-check-input" type="checkbox"   value="" >
+                <label class="form-check-label" for="gastoMensalAgua">Água</label>
+            </div>
+           
+            <div class="form-check ">
+                <input class="form-check-input" type="checkbox" value="" >
+                <label class="form-check-label" for="gastoMensalEnergia">Energia</label>
+            </div>
+
+             <h3>Selecione o período desejado:</h3>
+            <br />
+
+            <div class="form-group">
+                <label class="control-label">Data inicial</label>
+                <input class="form-control"  value=""  />
+            </div>
+
+           <div class="form-group ">
+                <label  class="control-label">Data final</label>
+                <input class="form-control input-group-sm"  value=""  />
+            </div>
+            <br />
+           <div class="form-group">
+                <input type="submit" value="Consultar" class="btn btn-default" />
+           </div>
+        </form>
+    </div>
+</div>
