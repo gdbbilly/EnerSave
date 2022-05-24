@@ -1,27 +1,30 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ConsultasMVC.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConsultasMVC.dbenersave
 {
-    public partial class DbenersaveContext : DbContext
+    public partial class DbEnerSaveContext : DbContext
     {
-        public DbenersaveContext()
+        public DbEnerSaveContext()
         {
         }
 
-        public DbenersaveContext(DbContextOptions<DbenersaveContext> options)
+        public DbEnerSaveContext(DbContextOptions<DbEnerSaveContext> options)
             : base(options)
         {
         }
 
-        public virtual DbSet<TgastosAgua> TgastosAgua { get; set; }
+        public virtual DbSet<GastosAguaEntity> GastosAguaContext { get; set; }
 
-        public virtual DbSet<TgastosEnergia> TgastosEnergia{ get; set; }
+        public virtual DbSet<GastosEnergiaEntity> GastosEnergiaContext { get; set; }
 
-        public virtual DbSet<TdescarteLixo> TdescarteLixo { get; set; }
+        public virtual DbSet<DescarteLixoEntity> DescarteLixoContext { get; set; }
+
+        public virtual DbSet<UsuarioEntity> UsuarioContext { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TgastosAgua>(entity =>
+            modelBuilder.Entity<GastosAguaEntity>(entity =>
             {
                 entity.ToTable("tgastos_agua", "dbenersave");
 
@@ -37,15 +40,22 @@ namespace ConsultasMVC.dbenersave
                 entity.Property(e => e.UsuarioId)
                     .HasColumnName("usu_id");
 
+                entity.HasOne(x => x.Usuario).WithOne().HasForeignKey<UsuarioEntity>(x=>x.Id);
+
+                //Builder.HasOne(X => X.Projeto).WithMany().HasForeignKey(X => X.IdProjeto);
+
             });
 
 
-            modelBuilder.Entity<TgastosEnergia>(entity =>
+            modelBuilder.Entity<GastosEnergiaEntity>(entity =>
             {
                 entity.ToTable("tgastos_energia", "dbenersave");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id");
+
+                entity.Property(e => e.Valor)
+                    .HasColumnName("valor");
 
                 entity.Property(e => e.Kwh)
                     .HasColumnName("kwh");
@@ -56,10 +66,11 @@ namespace ConsultasMVC.dbenersave
                 entity.Property(e => e.UsuarioId)
                     .HasColumnName("usu_id");
 
+                entity.HasOne(x => x.Usuario);
             });
 
 
-            modelBuilder.Entity<TdescarteLixo>(entity =>
+            modelBuilder.Entity<DescarteLixoEntity>(entity =>
             {
                 entity.ToTable("tdescarte_lixo", "dbenersave");
 
@@ -81,6 +92,27 @@ namespace ConsultasMVC.dbenersave
                 entity.Property(e => e.UsuarioId)
                     .HasColumnName("usu_id");
 
+                entity.HasOne(x => x.Usuario);
+
+            });
+
+            modelBuilder.Entity<UsuarioEntity>(entity =>
+            {
+                entity.ToTable("tusuarios", "dbenersave");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id");
+
+                entity.Property(e => e.Login)
+                    .HasColumnName("login");
+
+                entity.Property(e => e.Senha)
+                    .HasColumnName("senha");
+
+                entity.Property(e => e.Nome)
+                 .HasColumnName("nome");
+
+                entity.HasKey(e => e.Id);
             });
         }
     }

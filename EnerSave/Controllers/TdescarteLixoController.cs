@@ -1,17 +1,17 @@
-﻿using ConsultasMVC.Controllers.abstractions;
-using ConsultasMVC.dbenersave;
-using EnerSave.Views.ViewModels;
+﻿using EnerSave.Views.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace ConsultasMVC.Controllers
 {
+    //[Authorize]
     public class TdescarteLixoController : Controller
     {
-        private readonly IDescarteLixoModel _model;
+        private readonly IDescarteLixoStore _model;
 
-        public TdescarteLixoController(IDescarteLixoModel model)
+        public TdescarteLixoController(IDescarteLixoStore model)
         {
             _model = model;
         }
@@ -19,7 +19,7 @@ namespace ConsultasMVC.Controllers
         // GET: TgastosAgua
         public async Task<IActionResult> Index()
         {
-            return View(await _model.getAll());
+            return View(await _model.GetAll());
         }
 
         // GET: TgastosAgua/Details/5
@@ -30,7 +30,7 @@ namespace ConsultasMVC.Controllers
                 return NotFound();
             }
 
-            var tgastosAgua = await _model.getById(id);
+            var tgastosAgua = await _model.GetById(id);
             if (tgastosAgua == null)
             {
                 return NotFound();
@@ -52,7 +52,7 @@ namespace ConsultasMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _model.post(tgastos);
+                await _model.Post(tgastos);
                 return RedirectToAction(nameof(Index));
             }
             return View(tgastos);
@@ -66,7 +66,7 @@ namespace ConsultasMVC.Controllers
                 return NotFound();
             }
 
-            var tgastos = await _model.getById(id);
+            var tgastos = await _model.GetById(id);
             if (tgastos == null)
             {
                 return NotFound();
@@ -77,7 +77,7 @@ namespace ConsultasMVC.Controllers
         // POST: TgastosAgua/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,MetrosCubicos,Periodo,UsuarioId")] TdescarteLixo tgastos)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,MetrosCubicos,Periodo,UsuarioId")] DescarteLixoViewModel tgastos)
         {
             if (id != tgastos.Id)
             {
@@ -88,7 +88,7 @@ namespace ConsultasMVC.Controllers
             {
                 try
                 {
-                    await _model.update(tgastos);
+                    await _model.Update(tgastos);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -114,7 +114,7 @@ namespace ConsultasMVC.Controllers
                 return NotFound();
             }
 
-            var tgastosAgua = await _model.getById(id);
+            var tgastosAgua = await _model.GetById(id);
             if (tgastosAgua == null)
             {
                 return NotFound();
@@ -128,7 +128,7 @@ namespace ConsultasMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            await _model.delete(id);
+            await _model.Delete(id);
             return RedirectToAction(nameof(Index));
         }
 

@@ -14,22 +14,28 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Organico" class="control-label"> Peso total orgânico (Kg)</label>
-                <input asp-for="Organico" class="form-control" />
+                <input asp-for="Organico" type="number" class="form-control" />
                 <span asp-validation-for="Organico" class="text-danger"></span>
             </div>
               <div class="form-group">
                 <label asp-for="Reciclavel" class="control-label"> Peso total seletivo (Kg):</label>
-                <input asp-for="Reciclavel" class="form-control" />
+                <input asp-for="Reciclavel" type="number" class="form-control" />
                 <span asp-validation-for="Reciclavel" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Periodo" class="control-label">Mês do descarte:</label>
-                <input asp-for="Periodo" class="form-control" />
+                <input asp-for="Periodo" type="date" class="form-control" />
                 <span asp-validation-for="Periodo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="UsuarioId" class="control-labels">Usuário</label>
                 <input asp-for="UsuarioId" class="form-control" />
+                <select asp-for="UsuarioId" class="combo form-control" name="state">
+                    <option value="1">Alabama</option>
+                    <option value="2">Wyoming</option>
+                </select>
+
+
                 <span asp-validation-for="UsuarioId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -46,3 +52,8 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<script>
+    $(document).ready(function () {
+        $('.combo').select2();
+    });
+</script>

@@ -8,7 +8,8 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
-        
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -37,8 +38,6 @@
                     <li><a asp-area="" asp-controller="TgastosEnergia" asp-action="">Gastos Energia</a></li>
                     <li><a asp-area="" asp-controller="TdescarteLixo" asp-action="">Descarte Lixo</a></li>
                     <li><a asp-area="" asp-controller="GastosGerais" asp-action="">Gastos Gerais</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="">Usuários</a></li>
-                   
                 </ul>
             </div>
          
@@ -62,6 +61,7 @@
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"

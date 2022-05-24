@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace ConsultasMVC.dbenersave
+namespace EnerSave.Views.ViewModels
 {
-    public partial class TgastosAgua
+    public class GastosAguaViewModel
     {
         public int Id { get; set; }
         public decimal MetrosCubicos { get; set; }
         public DateTime? Periodo { get; set; }
-        public long UsuarioId { get; set; }
+        public int UsuarioId { get; set; }
     }
 }
