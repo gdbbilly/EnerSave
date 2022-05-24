@@ -33,12 +33,13 @@ namespace ConsultasMVC
         public async Task<int> Post(UsuarioViewModel model)
         {
             var entity = new UsuarioEntity();
-            entity.Id = model.Id;
             entity.Login = model.Login;
-            entity.Nome= model.Nome;
-            entity.Senha= model.Senha;
+            entity.Nome = model.Nome;
+            entity.Senha = model.Senha;
+            entity.Administrador = false;
 
             _context.Add(entity);
+            
             return await _context.SaveChangesAsync();
         }
 

@@ -38,7 +38,7 @@ namespace EnerSave.Controllers
 
                     HttpContext.Request.Headers.Add("Bearer", token);
 
-                    return RedirectToAction("/");
+                    return Redirect("/");
                 }
             }
             return View();

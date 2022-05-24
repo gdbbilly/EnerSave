@@ -44,7 +44,7 @@ namespace ConsultasMVC
                 _context.Update(tgastosAgua);
                 return await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException) 
             {
                 throw;
             }

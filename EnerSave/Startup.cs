@@ -105,6 +105,9 @@ namespace ConsultasMVC
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}");
+                routes.MapRoute(
+                   name: "login",
+                   template: "{controller=Login}/{action=Index}");
             });
         }
     }

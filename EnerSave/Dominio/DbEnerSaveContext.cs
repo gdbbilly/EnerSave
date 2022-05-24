@@ -112,7 +112,9 @@ namespace ConsultasMVC.dbenersave
                 entity.Property(e => e.Nome)
                  .HasColumnName("nome");
 
-                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Administrador)
+                 .HasColumnName("administrador");
+                
             });
         }
     }

@@ -46,7 +46,7 @@ namespace ConsultasMVC
             try
             {
                 var gastosAgua = new DescarteLixoEntity();
-                gastosAgua.Id= model.Id;
+                gastosAgua.Id = model.Id;
                 gastosAgua.Peso = model.Peso;
                 gastosAgua.Organico = model.Organico;
                 gastosAgua.Reciclavel = model.Reciclavel;
