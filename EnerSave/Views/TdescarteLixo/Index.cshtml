@@ -19,10 +19,19 @@
     <thead>
         <tr>
             <th>
-                Total de Lixo Orgânico(Kg)
+                Peso total (Kg)
             </th>
             <th>
-                Total de Lixo Seletivo(Kg)
+                Orgânico
+            </th>
+            <th>
+                Seletivo
+            </th>
+            <th>
+                Eletrônico
+            </th>
+            <th>
+                Observação
             </th>
             <th>
                 Período do descarte
@@ -36,6 +45,39 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Peso)
+                </td>
+                <td>
+                    @{ if (item.Organico)
+                        {
+                            @:Sim
+                        }
+                        else
+                        {
+                            @:Não
+                        }
+                    }
+                </td>
+                <td>
+                    @{ if (item.Reciclavel)
+                        {
+                            @:Sim
+                        }
+                        else
+                        {
+                            @:Não
+                        }
+                    }
+                </td>
+                <td>
+                    @{ if (item.Eletronico)
+                        {
+                            @:Sim
+                        }
+                        else
+                        {
+                            @:Não
+                        }
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Periodo)

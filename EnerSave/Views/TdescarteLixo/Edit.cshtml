@@ -14,14 +14,30 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Peso" class="control-label">Peso total orgânico (Kg)</label>
+                <label asp-for="Peso" class="control-label"> Peso total (Kg):</label>
                 <input asp-for="Peso" type="number" class="form-control" />
                 <span asp-validation-for="Peso" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Peso" class="control-label">Peso total seletivo (Kg)</label>
-                <input asp-for="Peso" type="number" class="form-control" />
-                <span asp-validation-for="Peso" class="text-danger"></span>
+                <label asp-for="Organico" class="control-label"> Orgânico</label>
+                <input asp-for="Organico" type="checkbox" class="form-control" />
+                <span asp-validation-for="Organico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reciclavel" class="control-label"> Seletivo</label>
+                <input asp-for="Reciclavel" type="checkbox" class="form-control" />
+                <span asp-validation-for="Reciclavel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eletronico" class="control-label"> Eletrônico</label>
+                <input asp-for="Eletronico" type="checkbox" class="form-control" />
+                <span asp-validation-for="Eletronico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observacao" class="control-label"> Observação</label>
+                <input asp-for="Observacao" type="text" class="form-control" />
+                <span asp-validation-for="Eletronico" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Periodo" class="control-label">Período</label>

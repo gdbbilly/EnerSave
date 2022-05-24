@@ -41,8 +41,8 @@ create table tgastos_agua (
 # cria tabela de gastos de energia
 create table tgastos_energia(
 	id int primary key auto_increment,
-    kwh numeric(19, 8),
-    valor numeric(19, 8),
+    kwh numeric(10, 2),
+    valor numeric(10, 2),
    	periodo date,
     usu_id int not null,
     constraint fk_energia_usuario foreign key(usu_id) references tusuarios (id) on delete cascade on update cascade
@@ -52,11 +52,12 @@ create table tgastos_energia(
 # cria tabela de descarte de lixo
 create table tdescarte_lixo(
 	id int primary key auto_increment,
-    peso numeric(19, 8),
+    peso numeric(10, 2),
     periodo date,
     reciclavel boolean,
     organico boolean,
     eletronico boolean,
+    observacao varchar(2000),
     usu_id int not null,
     constraint fk_lixo_usuario foreign key(usu_id) references tusuarios (id) on delete cascade on update cascade
 );

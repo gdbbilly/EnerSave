@@ -13,14 +13,30 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Organico" class="control-label"> Peso total orgânico (Kg)</label>
-                <input asp-for="Organico" type="number" class="form-control" />
+                <label asp-for="Peso" class="control-label"> Peso total (Kg):</label>
+                <input asp-for="Peso" type="number" class="form-control" />
+                <span asp-validation-for="Peso" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Organico" class="control-label"> Orgânico</label>
+                <input asp-for="Organico" type="checkbox" class="form-control" />
                 <span asp-validation-for="Organico" class="text-danger"></span>
             </div>
-              <div class="form-group">
-                <label asp-for="Reciclavel" class="control-label"> Peso total seletivo (Kg):</label>
-                <input asp-for="Reciclavel" type="number" class="form-control" />
+            <div class="form-group">
+                <label asp-for="Reciclavel" class="control-label"> Seletivo</label>
+                <input asp-for="Reciclavel" type="checkbox" class="form-control" />
                 <span asp-validation-for="Reciclavel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eletronico" class="control-label"> Eletrônico</label>
+                <input asp-for="Eletronico" type="checkbox" class="form-control" />
+                <span asp-validation-for="Eletronico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observacao" class="control-label"> Observação</label>
+                <input asp-for="Observacao" type="text" class="form-control" />
+                <span asp-validation-for="Eletronico" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Periodo" class="control-label">Mês do descarte:</label>
@@ -30,10 +46,10 @@
             <div class="form-group">
                 <label asp-for="UsuarioId" class="control-labels">Usuário</label>
                 <input asp-for="UsuarioId" class="form-control" />
-                <select asp-for="UsuarioId" class="combo form-control" name="state">
+                @*<select asp-for="UsuarioId" class="combo form-control" name="state">
                     <option value="1">Alabama</option>
                     <option value="2">Wyoming</option>
-                </select>
+                </select>*@
 
 
                 <span asp-validation-for="UsuarioId" class="text-danger"></span>

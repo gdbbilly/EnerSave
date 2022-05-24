@@ -48,7 +48,7 @@ namespace ConsultasMVC.Controllers
         // POST: TgastosAgua/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MetrosCubicos,Periodo,UsuarioId")] DescarteLixoViewModel tgastos)
+        public async Task<IActionResult> Create([Bind("Id,Peso,Organico,Reciclavel,Eletronico,Observacao,Periodo,UsuarioId")] DescarteLixoViewModel tgastos)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace ConsultasMVC.Controllers
         // POST: TgastosAgua/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,MetrosCubicos,Periodo,UsuarioId")] DescarteLixoViewModel tgastos)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Peso,Organico,Reciclavel,Eletronico,Observacao,Periodo,UsuarioId")] DescarteLixoViewModel tgastos)
         {
             if (id != tgastos.Id)
             {

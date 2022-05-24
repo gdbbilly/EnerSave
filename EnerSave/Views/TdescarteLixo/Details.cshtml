@@ -12,16 +12,59 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Peso total orgânico (Kg)
+            Peso (Kg)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Peso)
         </dd>
         <dt>
-            Peso total seletivo (Kg)
+            Orgânico
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Peso)
+            @{ if (Model.Organico)
+                {
+                    @:Sim
+                }
+                else
+                {
+                    @:Não
+                }
+            }
+        </dd>
+        <dt>
+            Seletivo
+        </dt>
+        <dd>
+            @{ if (Model.Reciclavel)
+                {
+                    @:Sim
+                }
+                else
+                {
+                    @:Não
+                }
+            }
+        </dd>
+        <dt>
+            Eletrônico
+        </dt>
+        <dd>
+            @{ if (Model.Eletronico)
+                {
+                    @:Sim
+                }
+                else
+                {
+                    @:Não
+                }
+            }
+        </dd>
+
+        <dt>
+            Observação:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Observacao)
         </dd>
         <dt>
             Período:

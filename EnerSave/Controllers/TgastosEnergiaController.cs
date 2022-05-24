@@ -49,7 +49,7 @@ namespace ConsultasMVC.Controllers
         // POST: TgastosAgua/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MetrosCubicos,Periodo,UsuarioId")] GastosEnergiaViewModel tgastos)
+        public async Task<IActionResult> Create([Bind("Id,Kwh,Valor,Periodo,UsuarioId")] GastosEnergiaViewModel tgastos)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace ConsultasMVC.Controllers
         // POST: TgastosAgua/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,MetrosCubicos,Periodo,UsuarioId")] GastosEnergiaEntity tgastos)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Kwh,Valor,Periodo,UsuarioId")] GastosEnergiaEntity tgastos)
         {
             if (id != tgastos.Id)
             {

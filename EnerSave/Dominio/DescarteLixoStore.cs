@@ -33,6 +33,8 @@ namespace ConsultasMVC
             gastosAgua.Peso = model.Peso;
             gastosAgua.Organico = model.Organico;
             gastosAgua.Reciclavel = model.Reciclavel;
+            gastosAgua.Eletronico = model.Eletronico;
+            gastosAgua.Observacao = model.Observacao;
             gastosAgua.Periodo = model.Periodo;
             gastosAgua.UsuarioId = model.UsuarioId;
             _context.Add(gastosAgua);
@@ -48,6 +50,8 @@ namespace ConsultasMVC
                 gastosAgua.Peso = model.Peso;
                 gastosAgua.Organico = model.Organico;
                 gastosAgua.Reciclavel = model.Reciclavel;
+                gastosAgua.Eletronico = model.Eletronico;
+                gastosAgua.Observacao = model.Observacao;
                 gastosAgua.Periodo = model.Periodo;
                 gastosAgua.UsuarioId = model.UsuarioId;
 
