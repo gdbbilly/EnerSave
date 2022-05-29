@@ -12,20 +12,21 @@
     <div class="col-md-4">
         <form asp-action="Login">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-              <div class="form-group">
+            <div class="form-group">
                 <label asp-for="Login" class="control-label">Login</label>
-                <input asp-for="Login" class="form-control" required type="email"/>
+                <input asp-for="Login" class="form-control" required type="email" />
                 <span asp-validation-for="Login" class="text-danger"></span>
             </div>
-        
+
             <div class="form-group">
                 <label asp-for="Senha" class="control-label">Senha</label>
-                <input asp-for="Senha" class="form-control" minlength="5" type="password"/>
+                <input asp-for="Senha" class="form-control" type="password" />
                 <span asp-validation-for="Senha" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Entrar" class="btn btn-default" />
             </div>
+            <input asp-for="Nome" value="teste" class="form-control" type="hidden" />
         </form>
             <style>
             input:focus:invalid 

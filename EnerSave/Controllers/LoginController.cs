@@ -1,4 +1,5 @@
 ﻿using ConsultasMVC;
+using EnerSave.Dominio;
 using EnerSave.Views.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,16 @@ namespace EnerSave.Controllers
             return View();
         }
 
+        public IActionResult Logout()
+        {
+            LoginSingleton.Instance.IdUsuario = 0;
+            LoginSingleton.Instance.Logado = false;
+            LoginSingleton.Instance.Usuario = string.Empty;
+            LoginSingleton.Instance.Nome = string.Empty;
+
+            return Redirect("/");
+        }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -34,9 +45,12 @@ namespace EnerSave.Controllers
             {
                 if (_model.LoginAsync(model.Login, model.Senha).Result)
                 {
-                    var token = TokenService.GenerateToken(model);
+                    var usuario = await _model.GetByLogin(model.Login);
 
-                    HttpContext.Request.Headers.Add("Bearer", token);
+                    LoginSingleton.Instance.IdUsuario = usuario.Id;
+                    LoginSingleton.Instance.Logado = true;
+                    LoginSingleton.Instance.Usuario = usuario.Login;
+                    LoginSingleton.Instance.Nome = usuario.Nome;
 
                     return Redirect("/");
                 }
